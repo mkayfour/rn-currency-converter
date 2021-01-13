@@ -1,12 +1,41 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from "react";
+import { StyleSheet, View, Image } from "react-native";
+
+import PlayGameButton from "./src/components/PlayGameButton";
 
 export default function App() {
+  const [number, setNumber] = useState(1);
+  const [imageUrl, setImageUrl] = useState(require("./assets/dice1.png"));
+
+  const playButtonPressed = () => {
+    const newNumber = Math.floor(Math.random() * Math.floor(5)) + 1;
+
+    // could have used switch case
+    if (newNumber === 1) {
+      setImageUrl(require("./assets/dice1.png"));
+    }
+    if (newNumber === 2) {
+      setImageUrl(require("./assets/dice2.png"));
+    }
+    if (newNumber === 3) {
+      setImageUrl(require("./assets/dice3.png"));
+    }
+    if (newNumber === 4) {
+      setImageUrl(require("./assets/dice4.png"));
+    }
+    if (newNumber === 5) {
+      setImageUrl(require("./assets/dice5.png"));
+    }
+    if (newNumber === 6) {
+      setImageUrl(require("./assets/dice6.png"));
+    }
+    setNumber(newNumber);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Image source={imageUrl} />
+      <PlayGameButton playButtonPressed={playButtonPressed} />
     </View>
   );
 }
@@ -14,8 +43,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#E74292",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
