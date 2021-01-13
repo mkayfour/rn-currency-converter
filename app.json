@@ -1,0 +1,12 @@
+{
+  "name": "sml",
+  "displayName": "sml",
+  "expo": {
+    "name": "sml",
+    "slug": "sml",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
